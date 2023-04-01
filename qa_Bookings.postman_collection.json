@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "4f907187-fe4f-40ca-8572-7fd62deafc3d",
+		"name": "qa_Bookings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26275789"
+	},
+	"item": [
+		{
+			"name": "GET_booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\",function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// pm=Postman\r",
+							"// test = method in Postman\r",
+							"// (\"string that describes the text\",function())\r",
+							"// pm.response = Json Response\r",
+							"// to.have\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_booking_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking/775",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking",
+						"775"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_booking",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"POST =www.myfamily.com/trabsky\r",
+							"\r",
+							"{\r",
+							"    \"firstname\" : \"Daria\",\r",
+							"    \"lastname\" : \"Trabsky\",\r",
+							"    \"total number of memebers\": 4,\r",
+							"    \"additionalfammembers\" : true,\r",
+							"    \"familyimportantdates\" : {\r",
+							"        \"wedding\" : \"2012-08-10\",\r",
+							"}\r",
+							"\r",
+							"Explain: My endpoint is send a POST request with my family info to tarbsky endpoint and get back the relevent details\r",
+							"\r",
+							"\r",
+							"    \r",
+							"{\r",
+							"    \"firstname\" : \"Daria\",\r",
+							"    \"lastname\" : \"Trabsky\",\r",
+							"    \"total number of memebers\": 4,\r",
+							"    \"additionalfammembers\" : true,\r",
+							"    \"familyimportantdates\" : {\r",
+							"        \"wedding\" : \"2012-08-10\",\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"Daria\",\r\n    \"lastname\" : \"Trabsky\",\r\n    \"totalprice\" : 25 ,\r\n    \"depositpaid\" : false,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2022-03-25\",\r\n        \"checkout\" : \"2022-30-30\"\r\n    },\r\n    \"additionalneeds\" : \"Video games / sports\"\r\n}"
+				},
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/auth",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT_booking_id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "token=aa58e97e99c6e21"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\": \"Carlos MEdina\",\r\n    \"lastname\": \"Sevilla\",\r\n    \"totalprice\": 111,\r\n    \"depositpaid\": true,\r\n    \"bookingdates\": {\r\n        \"checkin\": \"2018-01-01\",\r\n        \"checkout\": \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\": \"Breakfast\"\r\n}"
+				},
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking/6575",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking",
+						"6575"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE_booking",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "token=aa58e97e99c6e21"
+					}
+				],
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/booking/407",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"booking",
+						"407"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
